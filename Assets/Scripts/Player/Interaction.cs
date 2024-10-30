@@ -13,11 +13,11 @@ public class Interaction : MonoBehaviour
     private IInteractable curInteractable;
 
     public TextMeshProUGUI promptText;
-    private Camera camera;
+    [SerializeField] private Camera camera;
 
     void Start()
     {
-        camera = Camera.main;
+        //camera = Camera.main;
     }
 
     // Update is called once per frame
@@ -25,7 +25,6 @@ public class Interaction : MonoBehaviour
     {
         if(Time.time - lastCheckTime > checkRate)
         {
-            Debug.Log("111");
             lastCheckTime = Time.time;
 
             Ray ray = camera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
@@ -33,10 +32,8 @@ public class Interaction : MonoBehaviour
 
             if(Physics.Raycast(ray, out hit, maxCheckDistance, layerMask))
             {
-                Debug.Log("222");
                 if(hit.collider.gameObject != curInteractGameObject)
                 {
-                    Debug.Log("333");
                     curInteractGameObject = hit.collider.gameObject;
                     curInteractable = hit.collider.GetComponent<IInteractable>();
                     SetPromptText();
@@ -44,7 +41,6 @@ public class Interaction : MonoBehaviour
             }
             else
             {
-                Debug.Log("444");
                 curInteractGameObject = null;
                 curInteractable = null;
                 promptText.gameObject.SetActive(false);
