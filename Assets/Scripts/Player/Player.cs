@@ -11,12 +11,15 @@ public class Player : MonoBehaviour
 
     public ItemData itemData;
     public Action addItem;
-
+    
+    public Rigidbody rigidbody;
+    public Transform dropPosition;
     private void Awake()
     {
         CharacterManager.Instance.Player = this;
         controller = GetComponent<PlayerController>();
         condition = GetComponent<PlayerCondition>();
         collider = GetComponent<PlayerCollider>();
+        rigidbody = GetComponent<Rigidbody>();
     }
 }
