@@ -128,13 +128,22 @@ public class PlayerController : MonoBehaviour
         canLook = !toggle;
     }
 
-    public void PlusSpeed(float amount)
+    public void PlusSpeed(float time, float amount)
     {
         moveSpeed += amount;
+
+        StartCoroutine(WaitFor(time, amount));
     }
 
     public void OriginalSpeed(float amount)
     {
         moveSpeed -= amount;
+    }
+    
+    IEnumerator WaitFor(float delayTime, float amount) 
+    { 
+        Debug.Log($"delayTime {delayTime} amount {amount}");
+        yield return new WaitForSeconds(delayTime);
+        OriginalSpeed(amount);
     }
 }
