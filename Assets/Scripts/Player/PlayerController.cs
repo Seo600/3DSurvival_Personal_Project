@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -125,5 +126,15 @@ public class PlayerController : MonoBehaviour
         bool toggle = Cursor.lockState == CursorLockMode.Locked;
         Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
         canLook = !toggle;
+    }
+
+    public void PlusSpeed(float amount)
+    {
+        moveSpeed += amount;
+    }
+
+    public void OriginalSpeed(float amount)
+    {
+        moveSpeed -= amount;
     }
 }

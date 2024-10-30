@@ -203,10 +203,20 @@ public class UIInventory : MonoBehaviour
                     case ConsumableType.Hunger:
                         condition.Eat(selectedItem.consumables[i].value);
                         break;
+                    case ConsumableType.Speed:
+                        controller.PlusSpeed(selectedItem.consumables[i].value);
+                        StartCoroutine(WaitFor(selectedItem.consumables[i].time , selectedItem.consumables[i].value));
+                        break;
                 }
             }
             RemoveSelectedItem();
         }
+    }
+    
+    IEnumerator WaitFor(float delayTime, float amount) 
+    { 
+        yield return new WaitForSeconds(delayTime);
+        controller.OriginalSpeed(amount);
     }
 
     public void OnDropButton()

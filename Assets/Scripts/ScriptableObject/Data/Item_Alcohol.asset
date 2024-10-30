@@ -12,12 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61d209e52a1094192a4ca22370fc6d45, type: 3}
   m_Name: Item_Alcohol
   m_EditorClassIdentifier: 
-  displayName: 
-  description: 
-  type: 0
+  displayName: "\uC220"
+  description: "\uB9C8\uC2DC\uBA74 \uAE30\uBD84\uC774 \uC88B\uC544\uC838 \uC804\uB825\uC9C8\uC8FC
+    \uD560\uC9C0\uB3C4..?"
+  type: 2
   icon: {fileID: 0}
-  dropPrefab: {fileID: 0}
+  dropPrefab: {fileID: 252183275490296281, guid: 545a6a837d3ce4457ba60514b41c4409, type: 3}
   canStack: 0
   maxStackAmount: 0
-  consumables: []
+  consumables:
+  - type: 2
+    value: 10
+    time: 2
   equipPrefab: {fileID: 0}
